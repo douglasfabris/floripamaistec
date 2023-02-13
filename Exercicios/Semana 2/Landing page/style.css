@@ -1,0 +1,29 @@
+body {
+    background-color:rgb(255, 249, 214);
+    text-align: center;
+}
+
+.header {
+    background-color: rgb(226, 219, 178);
+    padding: 5px;
+}
+
+img {
+    padding: 10px
+}
+
+p {
+    font-size: 18px
+}
+
+#form {
+    display: inline-block;
+    text-align: right;
+    padding: 10px;
+    background-color: rgb(226, 219, 178);
+    border-radius: 10px;
+}
+
+label {
+    margin-bottom: 10px;
+}
