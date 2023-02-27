@@ -26,19 +26,21 @@
             <label for="valor" class="form-label">Valor da negociação</label><br>
             <input type="number" class="form-control" min="0.0" max="1000000.0" step="0.1" id="valor"><br>
         </div>
-        <input type="submit" class="btn btn-primary mb-3" value="Submeter">
+        <input type="submit" class="btn btn-primary mb-3" value="Comprar">
     </form>
 
-    <table id="tabela" class="table table-bordered">
+    <table class="table table-bordered">
         <thead>
             <th>Data da negociação</th>
             <th>Quantidade de ações</th>
             <th>Valor da negociação</th>
         </thead>
-        <tbody>
+        <tbody id="tabela">
 
         </tbody>
     </table>
+    <label for="filtro" class="form-label">Adicione um valor mínimo para filtrar</label><br>
+    <input type="number" class="form-control" id="filtro"><br>
     <button id="filtrar" class="btn btn-primary">Filtrar</button>
     </div>
     <footer class="footer">

@@ -9,10 +9,9 @@ let controller = new NegociacaoController();
 document.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault();
     controller.criarNegociacao();
-    console.log(controller);
 })
 
 document.querySelector("#filtrar").addEventListener("click", () => {
-    let filtered = controller.listaNegociacoes.filtrar(500);
-    console.log(filtered);
+    let filtered = controller.listaNegociacoes.filtrar(document.querySelector("#filtro").value);
+    controller.negociacoesView.atualizar(filtered);
 })

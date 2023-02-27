@@ -24,9 +24,14 @@ export class NegociacaoController {
         this.#listaNegociacoes.adiciona(negociacao);
         let negociacoes = this.#listaNegociacoes.negociacoes;
         this.#negociacoesView.atualizar(negociacoes);
+        console.log(negociacoes);
     }
 
     get listaNegociacoes() {
         return this.#listaNegociacoes
+    }
+
+    get negociacoesView() {
+        return this.#negociacoesView
     }
 }
