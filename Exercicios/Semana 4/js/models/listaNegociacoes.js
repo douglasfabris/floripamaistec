@@ -4,4 +4,18 @@ export class ListaNegociacoes {
     adiciona(negociacao) {
         this.#negociacoes.push(negociacao)
     }
+
+    filtrar(filtro) {
+        let filtered = this.#negociacoes.filter(valor => valor.valor > filtro)
+        return filtered
+    }
+
+    get negociacoes() {
+        return this.#negociacoes;
+    }
+
+    get data() {
+        return this.#negociacoes.data;
+    }
+
 }

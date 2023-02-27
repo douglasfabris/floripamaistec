@@ -1,11 +1,13 @@
 import { Negociacao } from "../models/negociacao.js";
 import { ListaNegociacoes } from "../models/listaNegociacoes.js";
+import { NegociacoesViews } from "../views/negociacoesViews.js";
 
 export class NegociacaoController {
     #campoData;
     #campoQuantidade;
     #campoValor;
-    #listaNegociacoes
+    #listaNegociacoes;
+    #negociacoesView = new NegociacoesViews();
 
     constructor() {
         this.#campoData = document.querySelector("#data");
@@ -15,12 +17,16 @@ export class NegociacaoController {
     }
 
     criarNegociacao() {
-        let data = Date(this.#campoData.value);
+        let data = new Date(this.#campoData.value + "T00:00:00-03:00");
         let quantidade = this.#campoQuantidade.value;
         let valor = this.#campoValor.value;
-        let negociacao = new Negociacao(data, quantidade, valor)
+        let negociacao = new Negociacao(data, quantidade, valor);
         this.#listaNegociacoes.adiciona(negociacao);
-        console.log(negociacao)
-        console.log(this.#listaNegociacoes.negociacao)
+        let negociacoes = this.#listaNegociacoes.negociacoes;
+        this.#negociacoesView.atualizar(negociacoes);
+    }
+
+    get listaNegociacoes() {
+        return this.#listaNegociacoes
     }
 }

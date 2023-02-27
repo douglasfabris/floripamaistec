@@ -4,9 +4,20 @@ export class Negociacao {
     #valor;
 
     constructor(data, quantidade, valor) {
-        this.#data = Date(data);
+        this.#data = new Date(data).toDateString();
         this.#quantidade = Number(quantidade);
         this.#valor = Number(valor);
     }
+
+    get data() {
+        return this.#data;
+    }
+
+    get quantidade() {
+        return this.#quantidade;
+    }
     
+    get valor() {
+        return this.#valor;
+    }
 }
