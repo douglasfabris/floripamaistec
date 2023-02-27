@@ -8,7 +8,7 @@ export class ListaNegociacoes {
     }
 
     filtrar(filtro) {
-        let filtered = this.#negociacoes.filter(valor => valor.valor > filtro)
+        let filtered = this.#negociacoes.filter(valor => valor.valor >= filtro)
         
         return filtered
     }

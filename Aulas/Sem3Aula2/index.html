@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria do João</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <h1>Pizzaria do João</h1>
+    </header>
+
+    <h2>Peça aqui a sua pizza</h2>
+
+    <form>
+        <label for="massa">Escolha sua massa</label>
+        <select class="form-select" id="massa" name="massa" aria-label="Selecione a massa">
+            <option selected>Massa comum</option>
+            <option value="1">Massa integral</option>
+            <option value="2">Massa temperada</option>
+        </select>
+
+        <label for="borda">Escolha sua massa</label>
+        <select class="form-select" id="borda" name="borda" aria-label="Selecione a borda">
+            <option selected>Sem borda</option>
+            <option value="1">Borda de catupiry</option>
+            <option value="2">Borda de cheddar</option>
+        </select>
+
+        <label>Sabores</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="4queijos">
+            <label class="form-check-label" for="4queijos">4 Queijos</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="frangocatupiry">
+            <label class="form-check-label" for="frangocatupiry">Frango com catupiry</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="calabresa">
+            <label class="form-check-label" for="calabresa">Calabresa</label>
+        </div>
+            <input class="form-check-input" type="checkbox" value="" id="lombinho">
+            <label class="form-check-label" for="lombinho">Lombinho</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="filecheddar">
+            <label class="form-check-label" for="filecheddar">Filé com cheddar</label>
+        </div>
+            <input class="form-check-input" type="checkbox" value="" id="portuguesa">
+            <label class="form-check-label" for="portuguesa">Portuguesa</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="marguerita">
+            <label class="form-check-label" for="marguerita">Marguerita</label>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
