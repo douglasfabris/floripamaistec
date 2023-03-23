@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
 function CardAdicionar({ adicionarTarefa }) {
   const [tarefa, setTarefa] = useState("");
+  const ref = useRef(null);
   const handleAdicionarTarefa = () => {
     if (tarefa) {
-      adicionarTarefa(tarefa)
-      setTarefa("")
+      adicionarTarefa(tarefa);
+      setTarefa("");
+      ref.current.focus();
     }
   };
 
@@ -17,6 +19,13 @@ function CardAdicionar({ adicionarTarefa }) {
         type="text"
         value={tarefa}
         onChange={(e) => setTarefa(e.target.value)}
+        ref={ref}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleAdicionarTarefa();
+          }
+        }}
+        autoFocus
         required
       />
       <button type="button" onClick={handleAdicionarTarefa}>
