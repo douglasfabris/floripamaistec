@@ -1,9 +1,13 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-function CardAdicionar( {adicionarTarefa} ) {
+function CardAdicionar({ adicionarTarefa }) {
   const [tarefa, setTarefa] = useState("");
-  const handleAdicionarTarefa = () => adicionarTarefa(tarefa)
+  const handleAdicionarTarefa = () => {
+    adicionarTarefa(tarefa)
+    setTarefa("")
+  };
+
   return (
     <div>
       <input
@@ -20,7 +24,7 @@ function CardAdicionar( {adicionarTarefa} ) {
   );
 }
 CardAdicionar.propTypes = {
-  adicionarTarefa: PropTypes.func.isRequired
-}
+  adicionarTarefa: PropTypes.func.isRequired,
+};
 
 export default CardAdicionar;

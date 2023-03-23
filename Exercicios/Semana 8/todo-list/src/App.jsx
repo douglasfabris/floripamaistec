@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import CardAdicionar from "./components/CardAdicionar";
 import uniqid from "uniqid";
+import ListItem from "./components/ListItem";
 
 function App() {
   const [tarefas, setTarefas] = useState([]);
@@ -15,9 +16,17 @@ function App() {
     setTarefas([...tarefas, tarefa])
   }
 
+  function removerTarefa(id) {
+    let tarefasNew = tarefas.filter(tarefa => tarefa.id !== id)
+    setTarefas(tarefasNew)
+  }
+
   return (
     <div>
       <CardAdicionar adicionarTarefa={adicionarTarefa}/>
+      {tarefas.map((tarefa) =>
+        <ListItem tarefa={tarefa} key={tarefa.id} remover={removerTarefa}/>
+      )}
     </div>
   );
 }
