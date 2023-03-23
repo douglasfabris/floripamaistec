@@ -4,12 +4,14 @@ import PropTypes from "prop-types";
 function CardAdicionar({ adicionarTarefa }) {
   const [tarefa, setTarefa] = useState("");
   const handleAdicionarTarefa = () => {
-    adicionarTarefa(tarefa)
-    setTarefa("")
+    if (tarefa) {
+      adicionarTarefa(tarefa)
+      setTarefa("")
+    }
   };
 
   return (
-    <div>
+    <div className="adicionar">
       <input
         placeholder="Adicionar tarefa"
         type="text"

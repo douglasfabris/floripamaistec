@@ -23,6 +23,7 @@ function App() {
 
   return (
     <div>
+      <h1>TODO List</h1>
       <CardAdicionar adicionarTarefa={adicionarTarefa}/>
       {tarefas.map((tarefa) =>
         <ListItem tarefa={tarefa} key={tarefa.id} remover={removerTarefa}/>

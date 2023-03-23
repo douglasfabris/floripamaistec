@@ -1,8 +1,12 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem;
   text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 input {
@@ -12,6 +16,14 @@ input {
   border-radius: 5px;
   border-color: gray;
   margin: 5px
+}
+
+.check {
+  margin: auto;
+}
+
+.checkbox {
+  width:50px
 }
 
 @keyframes logo-spin {
@@ -35,4 +47,8 @@ input {
 
 .read-the-docs {
   color: #888;
+}
+
+p {
+  text-align: left;
 }
