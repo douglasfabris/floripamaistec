@@ -1,11 +1,14 @@
 import { useRef } from "react";
+import { useToDos } from "../contexts/useToDos";
 
-export const Formulario = ({ onSubmit }) => {
+export const Formulario = () => {
+  const todoContext = useToDos();
+  const { addToDo } = todoContext;
   const textElementRef = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(textElementRef.current.value);
+    addToDo(textElementRef.current.value);
     textElementRef.current.value = "";
   };
 
