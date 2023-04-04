@@ -1,10 +1,11 @@
+import DadosPessoaisisForm from "./components/DadosPessoais"
 
 
 function App() {
 
   return (
     <div>
-      Olá
+      <DadosPessoaisisForm/>
     </div>
   )
 }
