@@ -32,12 +32,6 @@ function DadosPessoaisisForm () {
         <Form.Label>Estado</Form.Label>
         <Form.Control type="text" placeholder='Digite o estado'/>
       </Form.Group>
-      <Button variant="primary" type="button">
-        Voltar
-      </Button>
-      <Button variant="primary" type="button">
-        Avançar
-      </Button>
     </Form>
    );
 }

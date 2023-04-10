@@ -12,9 +12,6 @@ function DadosPessoaisisForm () {
         <Form.Label>E-mail</Form.Label>
         <Form.Control type="email"placeholder='Digite o seu e-mail'/>
       </Form.Group>
-      <Button variant="primary" type="button">
-        Avançar
-      </Button>
     </Form>
    );
 }
