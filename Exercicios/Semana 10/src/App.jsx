@@ -5,8 +5,8 @@ import { FcNext, FcPrevious, FcOk } from "react-icons/fc"
 import DadosPessoaisisForm from "./components/DadosPessoais"
 import Endereco from "./components/Endereco"
 import Agradecimento from "./components/Agradecimento"
+import Passos from "./components/Passos"
 import { CSHeader } from "./SCHeader"
-
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
         <h2>Cadastre-se gratuitamente!</h2>
         <p>Faça o seu cadastro para ter acesso a todos os recursos da nossa plataforma</p>
       </CSHeader>
+      <Passos passoAtual={passoAtual}/>
       <form>
         { passoAtual === 0 ? (<DadosPessoaisisForm/>) : ( passoAtual === 1 ? (<Endereco/>) : (<Agradecimento/>))}
         <div>
