@@ -25,12 +25,18 @@ http
   .createServer((req, res) => {
     switch (req.method) {
       case "GET":
-        // Lógica do GET
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(lerJson());
         break;
       case "POST":
-        // lógica do POST
+        let produto = "";
+        req.on("data", (chunk) => {
+          produto += chunk;
+        });
+        req.on("end", () => {
+          res.writeHead(200, { "Content-Type": "text/plain; charset: utf-8;" });
+          res.end(cadastrarProduto(produto));
+        });
         break;
     }
   })

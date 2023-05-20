@@ -13,6 +13,13 @@
       "marca": "logitech",
       "cor": "preto",
       "id": 1
+    },
+    {
+      "nome": "laptop",
+      "preco": 3000,
+      "marca": "asus",
+      "cor": "branco",
+      "id": 3
     }
   ]
 }
