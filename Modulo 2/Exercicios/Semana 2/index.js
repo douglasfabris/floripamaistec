@@ -10,6 +10,17 @@ function lerJson() {
   }
 }
 
+function cadastrarProduto(produto) {
+  try {
+    const dados = JSON.parse(fs.readFileSync("dados.json", "utf-8"));
+    dados.produtos.push(JSON.parse(produto));
+    fs.writeFileSync("dados.json", JSON.stringify(dados));
+    console.log("Cadastro realizado com sucesso");
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 http
   .createServer((req, res) => {
     switch (req.method) {
