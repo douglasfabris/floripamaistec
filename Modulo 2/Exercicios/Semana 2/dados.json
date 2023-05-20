@@ -1,4 +1,18 @@
-[
-  { "nome": "Douglas", "email": "douglas.df1@gmail.com", "senha": "123456" },
-  { "nome": "José", "email": "jose@jose.com", "senha": "123456" }
-]
+{
+  "produtos": [
+    {
+      "nome": "fone",
+      "preco": 50,
+      "marca": "logitech",
+      "cor": "lilas",
+      "id": 2
+    },
+    {
+      "nome": "mouse",
+      "preco": 30,
+      "marca": "logitech",
+      "cor": "preto",
+      "id": 1
+    }
+  ]
+}

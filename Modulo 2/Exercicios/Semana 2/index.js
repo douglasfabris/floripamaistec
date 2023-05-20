@@ -4,7 +4,7 @@ const fs = require("fs");
 function lerJson() {
   try {
     const dados = JSON.parse(fs.readFileSync("dados.json", "utf-8"));
-    return dados;
+    return JSON.stringify(dados.produtos);
   } catch (err) {
     console.log(err);
   }
@@ -15,10 +15,8 @@ http
     switch (req.method) {
       case "GET":
         // Lógica do GET
-        res.writeHead(200, { "Content-Type": "text/plain" });
-        res.write("Teste");
-        console.log(lerJson());
-        res.end();
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(lerJson());
         break;
       case "POST":
         // lógica do POST
