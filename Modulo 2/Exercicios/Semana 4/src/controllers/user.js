@@ -1,3 +1,4 @@
+const fs = require("fs");
 const listarDias = require("../utils/getDaysOfTheMonth");
 
 module.exports = {
@@ -26,5 +27,18 @@ module.exports = {
       return res.status(406).send("Data inválida");
     }
     return res.status(200).send(dias);
+  },
+
+  async salvarJson(req, res) {
+    const dadosJson = req.body;
+    console.log(dadosJson);
+    if (fs.existsSync("ex4.json")) {
+      const dadosArquivo = JSON.parse(fs.readFileSync("ex4.json", "utf-8"));
+      dadosArquivo.push(dadosJson);
+      fs.writeFileSync("ex4.json", JSON.stringify(dadosArquivo));
+      return res.status(200).send("Arquivo enviado com sucesso");
+    }
+    fs.writeFileSync("ex4.json", "[" + JSON.stringify(dadosJson) + "]");
+    return res.status(200).send("Arquivo enviado com sucesso");
   },
 };
