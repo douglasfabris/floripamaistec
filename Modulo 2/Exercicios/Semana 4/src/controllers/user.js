@@ -41,4 +41,15 @@ module.exports = {
     fs.writeFileSync("ex4.json", "[" + JSON.stringify(dadosJson) + "]");
     return res.status(200).send("Arquivo enviado com sucesso");
   },
+
+  async filtrarDados(req, res) {
+    const { ageMin = 0, ageMax = 199, state = "", job = "" } = req.query;
+    const dados = JSON.parse(fs.readFileSync("./src/database/user.json"));
+    const filtered = dados
+      .filter((user) => user.age >= ageMin && user.age <= ageMax)
+      .filter((user) => user.job.toLowerCase().includes(job.toLowerCase()))
+      .filter((user) => user.state.toLowerCase().includes(state.toLowerCase()));
+    console.log(filtered);
+    return res.status(200).send(filtered);
+  },
 };
