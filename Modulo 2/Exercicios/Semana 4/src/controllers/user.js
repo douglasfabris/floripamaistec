@@ -22,7 +22,6 @@ module.exports = {
       ano = parseInt(ano);
     }
     const dias = listarDias(mes, ano);
-    console.log(dias);
     if (!dias) {
       return res.status(406).send("Data inválida");
     }
@@ -31,7 +30,6 @@ module.exports = {
 
   async salvarJson(req, res) {
     const dadosJson = req.body;
-    console.log(dadosJson);
     if (fs.existsSync("ex4.json")) {
       const dadosArquivo = JSON.parse(fs.readFileSync("ex4.json", "utf-8"));
       dadosArquivo.push(dadosJson);
@@ -49,7 +47,35 @@ module.exports = {
       .filter((user) => user.age >= ageMin && user.age <= ageMax)
       .filter((user) => user.job.toLowerCase().includes(job.toLowerCase()))
       .filter((user) => user.state.toLowerCase().includes(state.toLowerCase()));
-    console.log(filtered);
     return res.status(200).send(filtered);
+  },
+
+  async alterarJson(req, res) {
+    const id = req.params.id;
+    const dados = req.body;
+    const dadosArquivo = JSON.parse(
+      fs.readFileSync("./src/database/user.json", "utf-8")
+    );
+    const index = dadosArquivo.findIndex((usuario) => usuario.id == id);
+    if (index === -1) {
+      return res.status(400).send("Usuário não encontrado");
+    }
+    const keys = Object.keys(dados);
+    let alterado = false;
+    let alterouId = false;
+    keys.forEach((key) => {
+      if (dados[key] != dadosArquivo[index][key]) {
+        if (key === "id") {
+          alterouId = true;
+          return;
+        }
+        dadosArquivo[index][key] = dados[key];
+        alterado = true;
+      }
+    });
+    console.log(dadosArquivo);
+    if (alterouId) return res.status(400).send("Não é possível alterar a ID");
+    if (alterado) return res.status(200).send("Usuário alterado com sucesso");
+    return res.status(400).send("Não há nada para alterar");
   },
 };
