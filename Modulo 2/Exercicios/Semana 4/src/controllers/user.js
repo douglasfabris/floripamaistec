@@ -51,7 +51,7 @@ module.exports = {
   },
 
   async alterarJson(req, res) {
-    const id = req.params.id;
+    const { id } = req.params;
     const dados = req.body;
     const dadosArquivo = JSON.parse(
       fs.readFileSync("./src/database/user.json", "utf-8")
@@ -73,9 +73,22 @@ module.exports = {
         alterado = true;
       }
     });
-    console.log(dadosArquivo);
     if (alterouId) return res.status(400).send("Não é possível alterar a ID");
+    fs.writeFileSync("./src/database/user.json", JSON.stringify(dadosArquivo));
     if (alterado) return res.status(200).send("Usuário alterado com sucesso");
     return res.status(400).send("Não há nada para alterar");
+  },
+
+  async deletarDados(req, res) {
+    const { id } = req.params;
+    const dadosArquivo = JSON.parse(
+      fs.readFileSync("./src/database/user.json", "utf-8")
+    );
+    const filtered = dadosArquivo.filter((usuario) => usuario.id != id);
+    if (dadosArquivo.length === filtered.length) {
+      return res.status(400).send("Usuário não encontrado");
+    }
+    fs.writeFileSync("./src/database/user.json", JSON.stringify(filtered));
+    return res.status(200).send("Empresa deletada");
   },
 };
