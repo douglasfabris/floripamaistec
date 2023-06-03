@@ -91,4 +91,16 @@ module.exports = {
     fs.writeFileSync("./src/database/user.json", JSON.stringify(filtered));
     return res.status(200).send("Empresa deletada");
   },
+
+  async retornarUsuario(req, res) {
+    const { id } = req.params;
+    const dadosArquivo = JSON.parse(
+      fs.readFileSync("./src/database/user.json", "utf-8")
+    );
+    const index = dadosArquivo.findIndex((usuario) => usuario.id == id);
+    if (index === -1) {
+      return res.status(400).send("Usuário não encontrado");
+    }
+    res.status(200).send(dadosArquivo[index].name);
+  },
 };
