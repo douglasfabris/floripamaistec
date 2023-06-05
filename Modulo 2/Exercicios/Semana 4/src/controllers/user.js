@@ -101,6 +101,32 @@ module.exports = {
     if (index === -1) {
       return res.status(400).send("Usuário não encontrado");
     }
-    res.status(200).send(dadosArquivo[index].name);
+    return res.status(200).send(dadosArquivo[index].name);
+  },
+
+  async converterString(req, res) {
+    const json = req.body;
+    const keys = Object.keys(json);
+    let stringCheck = true;
+    keys.forEach((key) => {
+      if (typeof json[key] !== "string") {
+        stringCheck = false;
+        return;
+      }
+      const separateArr = json[key].split("");
+      let output = [];
+      for (let letter in separateArr) {
+        if (separateArr[letter] === separateArr[letter].toLowerCase()) {
+          output += separateArr[letter].toUpperCase();
+        } else {
+          output += separateArr[letter].toLowerCase();
+        }
+      }
+      json[key] = output;
+    });
+    if (stringCheck === false) {
+      return res.status(400).send("Pelo menos um dos dados não é uma string");
+    }
+    return res.status(200).send(json);
   },
 };

@@ -8,6 +8,7 @@ const {
   alterarJson,
   deletarDados,
   retornarUsuario,
+  converterString,
 } = require("../../controllers/user");
 
 userRotasV1.patch("/ordenarLista", ordenarLista);
@@ -17,4 +18,5 @@ userRotasV1.get("/filtrarDados", filtrarDados);
 userRotasV1.put("/alterarJson/:id", alterarJson);
 userRotasV1.delete("/deletarDados/:id", deletarDados);
 userRotasV1.get("/retornarUsuario/:id", retornarUsuario);
+userRotasV1.post("/converterString", converterString);
 module.exports = userRotasV1;
