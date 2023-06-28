@@ -1,11 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const { connection } = require("./database/connection");
+const routes = require("./routes");
 
 class Server {
   constructor(server = express()) {
     this.middlewares(server);
     this.database();
+    this.allRoutes(server);
     this.initializeServer(server);
   }
 
@@ -26,6 +28,10 @@ class Server {
   async initializeServer(app) {
     const PORT = 3333; // Valor da porta do servidor
     app.listen(PORT, () => console.log(`Servidor executando na porta ${PORT}`)); // Execução do servidor
+  }
+
+  async allRoutes(app) {
+    app.use(routes);
   }
 }
 

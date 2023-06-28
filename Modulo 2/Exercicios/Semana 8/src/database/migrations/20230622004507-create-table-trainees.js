@@ -36,6 +36,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      date_birth: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
       father_name: {
         type: Sequelize.STRING,
         allowNull: false,
