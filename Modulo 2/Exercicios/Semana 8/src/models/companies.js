@@ -5,7 +5,10 @@ const Companies = connection.define(
   "companies",
   {
     id: { type: INTEGER, autoIncrement: true, primaryKey: true },
-    cnpj: STRING,
+    cnpj: {
+      type: STRING,
+      unique: true,
+    },
     company_name: STRING,
     contact: STRING,
     cep: STRING,
