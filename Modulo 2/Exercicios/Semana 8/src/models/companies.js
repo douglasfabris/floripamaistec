@@ -23,7 +23,7 @@ const Companies = connection.define(
     created_at: DATE,
     updated_at: DATE,
   },
-  { underscored: true }
+  { underscored: true, paranoid: true }
 );
 
 module.exports = {
